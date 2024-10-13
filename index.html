@@ -1,0 +1,382 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الجامعة الحكمة</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+  
+  body, html {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f5f9;
+    color: #1e2a78;
+  }
+  
+  header {
+    background-color: #1e2a78;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  nav {
+    background-color: #3d5af1;
+    padding: 0.5rem;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 1rem;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #f0f5f9;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .hero {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .hero:hover img {
+    transform: scale(1.05);
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: calc(33% - 1rem);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
+  
+  footer {
+    background-color: #1e2a78;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #3d5af1;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #1e2a78;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>الجامعة الحكمة</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#" data-page="home">الرئيسية</a></li>
+      <li><a href="#" data-page="about">عن الجامعة</a></li>
+      <li><a href="#" data-page="faculties">الكليات</a></li>
+      <li><a href="#" data-page="admissions">القبول</a></li>
+      <li><a href="#" data-page="research">البحث العلمي</a></li>
+      <li><a href="#" data-page="contact">اتصل بنا</a></li>
+    </ul>
+  </nav>
+  
+  <main id="main-content">
+    <!-- المحتوى سيتم تحميله هنا بواسطة جافا سكريبت -->
+  </main>
+  
+  <footer>
+    <p>جميع الحقوق محفوظة © 2023 الجامعة الحكمة</p>
+  </footer>
+
+  <script src="jquery.js"></script>
+  <script>
+    $(document).ready(function() {
+      // تحميل الصفحة الرئيسية عند بدء التحميل
+      loadPage('home');
+      
+      // التنقل بين الصفحات
+      $('nav a').on('click', function(e) {
+        e.preventDefault();
+        var page = $(this).data('page');
+        loadPage(page);
+      });
+      
+      function loadPage(page) {
+        $('#main-content').fadeOut(300, function() {
+          switch(page) {
+            case 'home':
+              $(this).html(`
+                <div class="hero">
+                  <img src="1.png" alt="حرم الجامعة الحكمة، مباني حديثة وسط مساحات خضراء" width="1200" height="400">
+                  <div class="hero-text">
+                    <h2>مرحباً بكم في الجامعة الحكمة</h2>
+                    <p>حيث نصنع قادة المستقبل</p>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="card">
+                    <h3>أخبار الجامعة</h3>
+                    <p>آخر الأخبار والفعاليات في الجامعة الحكمة</p>
+                  </div>
+                  <div class="card">
+                    <h3>برامجنا الأكاديمية</h3>
+                    <p>اكتشف برامجنا المتنوعة في مختلف التخصصات</p>
+                  </div>
+                  <div class="card">
+                    <h3>حياة الطلاب</h3>
+                    <p>تعرف على الأنشطة والفعاليات الطلابية في الحرم الجامعي</p>
+                  </div>
+                </div>
+              `);
+              break;
+            case 'about':
+              $(this).html(`
+                <h2>عن الجامعة</h2>
+                <div class="content">
+                  <div class="card">
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون جامعة رائدة عالمياً في التعليم والبحث العلمي والابتكار، ونساهم في بناء مجتمع المعرفة وتحقيق التنمية المستدامة.</p>
+                  </div>
+                  <div class="card">
+                    <h3>رسالتنا</h3>
+                    <p>تقديم تعليم عالي الجودة، وإجراء بحوث متميزة، وخدمة المجتمع من خلال الشراكات المحلية والدولية، وتخريج كوادر مؤهلة قادرة على المنافسة في سوق العمل.</p>
+                  </div>
+                  <div class="card">
+                    <h3>أهدافنا</h3>
+                    <ul>
+                      <li>تطوير البرامج الأكاديمية لتلبية احتياجات سوق العمل</li>
+                      <li>تعزيز البحث العلمي والابتكار</li>
+                      <li>تحقيق الشراكة المجتمعية الفاعلة</li>
+                      <li>تطوير البنية التحتية والتقنية للجامعة</li>
+                      <li>تحقيق التميز في الأداء المؤسسي</li>
+                    </ul>
+                  </div>
+                </div>
+              `);
+              break;
+            case 'faculties':
+              $(this).html(`
+                <h2>الكليات</h2>
+                <div class="content">
+                  <div class="card faculty-card">
+                    <img src="images/hero-min.jpg" alt="مبنى كلية الهندسة الحديث" width="400" height="200">
+                    <h3>كلية الهندسة</h3>
+                    <p>تقدم برامج متميزة في مختلف التخصصات الهندسية، مع التركيز على الابتكار والتطبيق العملي.</p>
+                  </div>
+                  <div class="card faculty-card">
+                    <img src="images/img_1.jpg" alt="طلاب كلية الطب في مختبر حديث" width="400" height="200">
+                    <h3>كلية الطب</h3>
+                    <p>تخرج أطباء أكفاء ملتزمين بأخلاقيات المهنة ومجهزين بأحدث المعارف الطبية.</p>
+                  </div>
+                  <div class="card faculty-card">
+                    <img src="images/img_2.jpg" alt="مختبر علمي متطور في كلية العلوم" width="400" height="200">
+                    <h3>كلية العلوم</h3>
+                    <p>توفر بيئة بحثية متقدمة لدراسة العلوم الأساسية والتطبيقية.</p>
+                  </div>
+                  <div class="card faculty-card">
+                    <img src="images/img_3.jpg" alt="قاعة محاضرات في كلية الآداب" width="400" height="200">
+                    <h3>كلية الآداب</h3>
+                    <p>تعزز الفكر النقدي والإبداع في مجالات اللغات والعلوم الإنسانية.</p>
+                  </div>
+                  <div class="card faculty-card">
+                    <img src="images/img_4.jpg" alt="طلاب كلية إدارة الأعمال في قاعة المؤتمرات" width="400" height="200">
+                    <h3>كلية إدارة الأعمال</h3>
+                    <p>تعد قادة المستقبل في مجال الأعمال والاقتصاد والتمويل.</p>
+                  </div>
+                </div>
+              `);
+              // إضافة حركات جافا سكريبت للبطاقات
+              $('.faculty-card').on('mouseenter', function() {
+                $(this).find('img').css('transform', 'scale(1.1)');
+                $(this).find('h3').css('color', '#3d5af1');
+              }).on('mouseleave', function() {
+                $(this).find('img').css('transform', 'scale(1)');
+                $(this).find('h3').css('color', '#1e2a78');
+              });
+              break;
+            case 'admissions':
+              $(this).html(`
+                <h2>القبول</h2>
+                <h3>شروط القبول:</h3>
+                <ul>
+                  <li>الحصول على شهادة الثانوية العامة أو ما يعادلها بمعدل لا يقل عن 80٪</li>
+                  <li>اجتياز اختبار القبول الخاص بالكلية المراد الالتحاق بها</li>
+                  <li>اجتياز المقابلة الشخصية</li>
+                  <li>إتقان اللغة الإنجليزية (الحصول على درجة لا تقل عن 5.5 في اختبار IELTS أو ما يعادلها)</li>
+                  <li>تقديم شهادة حسن سيرة وسلوك</li>
+                  <li>اجتياز الفحص الطبي</li>
+                </ul>
+                <p>لمزيد من المعلومات حول إجراءات التقديم والوثائق المطلوبة، يرجى زيارة بوابة القبول الإلكترونية.</p>
+                <button onclick="alert('سيتم توجيهك إلى بوابة القبول الإلكترونية')">التقديم الآن</button>
+              `);
+              break;
+            case 'research':
+              $(this).html(`
+                <h2>البحث العلمي</h2>
+                <p>تفخر الجامعة الحكمة بمراكز البحث المتقدمة والتي تغطي مجالات متنوعة من العلوم والتكنولوجيا والعلوم الإنسانية. نحن ملتزمون بدفع عجلة الابتكار والتقدم العلمي من خلال:</p>
+                <ul>
+                  <li>توفير بنية تحتية بحثية متطورة</li>
+                  <li>دعم الباحثين وطلاب الدراسات العليا</li>
+                  <li>التعاون مع المؤسسات البحثية العالمية</li>
+                  <li>نشر الأبحاث في المجلات العلمية المرموقة</li>
+                  <li>تنظيم المؤتمرات وورش العمل العلمية</li>
+                </ul>
+                <h3>مراكز البحث الرئيسية:</h3>
+                <div class="content">
+                  <div class="card">
+                    <h4>مركز أبحاث الطاقة المتجددة</h4>
+                    <p>يركز على تطوير تقنيات الطاقة النظيفة والمستدامة.</p>
+                  </div>
+                  <div class="card">
+                    <h4>معهد علوم البيانات والذكاء الاصطناعي</h4>
+                    <p>يقود الابتكار في مجالات تحليل البيانات الضخمة وتطبيقات الذكاء الاصطناعي.</p>
+                  </div>
+                  <div class="card">
+                    <h4>مركز الدراسات البيئية والتغير المناخي</h4>
+                    <p>يبحث في التحديات البيئية الحالية ويطور حلولاً مستدامة.</p>
+                  </div>
+                </div>
+              `);
+              break;
+            case 'contact':
+              $(this).html(`
+                <h2>اتصل بنا</h2>
+                <p>نحن هنا للإجابة على استفساراتكم. يمكنكم التواصل معنا من خلال النموذج أدناه أو عبر معلومات الاتصال المباشرة.</p>
+                <div class="content">
+                  <div class="card" style="width: 100%;">
+                    <h3>نموذج التواصل</h3>
+                    <form id="contact-form">
+                      <input type="text" name="name" placeholder="الاسم" required>
+                      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+                      <input type="tel" name="phone" placeholder="رقم الهاتف">
+                      <textarea name="message" placeholder="رسالتك" rows="4" required></textarea>
+                      <button type="submit">إرسال</button>
+                    </form>
+                  </div>
+                  <div class="card" style="width: 100%;">
+                    <h3>معلومات الاتصال</h3>
+                    <p><strong>العنوان:</strong> صنعاء، شارع الجامعة</p>
+                    <p><strong>الهاتف:</strong> 1234567-01</p>
+                    <p><strong>البريد الإلكتروني:</strong> info@example-university.edu</p>
+                  </div>
+                </div>
+              `);
+              // إضافة وظيفة إرسال النموذج
+              $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                alert('تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.');
+                this.reset();
+              });
+              break;
+          }
+          $(this).fadeIn(300);
+        });
+      }
+      
+      // حركة الصور
+      $('.hero').on('mouseenter', function() {
+        $(this).find('img').css('transform', 'scale(1.05)');
+      }).on('mouseleave', function() {
+        $(this).find('img').css('transform', 'scale(1)');
+      });
+      
+      // حركة البطاقات
+      $('.card').on('mouseenter', function() {
+        $(this).css('transform', 'translateY(-5px)');
+      }).on('mouseleave', function() {
+        $(this).css('transform', 'translateY(0)');
+      });
+    });
+  </script>
+</body></html>
